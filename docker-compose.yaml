@@ -1,0 +1,26 @@
+# команда для запуска сервера:
+# docker-compose up -d --build
+
+version: "3.9"
+services:
+  database:
+    container_name: pizza-database
+    # build:
+    #   context: ./database
+    volumes:
+      - ./database/pizza.sql:/docker-entrypoint-initdb.d/pizza.sql
+      - ./database_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: kirsing
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: 219528k
+    restart: always
+    ports:
+      - 5999:5432
+  client:
+    container_name: pizza-client
+    build:
+      context: .
+    restart: always
+    ports:
+      - 8082:8082
