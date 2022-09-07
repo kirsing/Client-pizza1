@@ -1,8 +1,7 @@
-package com.example.eurekaclientpizza.repository;
+package com.example.eurekaclientpizza.repository.pizza;
 
-import com.example.eurekaclientpizza.model.Pizza;
+import com.example.eurekaclientpizza.model.pizza.Pizza;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 

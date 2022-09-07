@@ -4,35 +4,35 @@
 version: "3.9"
 services:
   database:   # обозначение
-    container_name: pizza-database #
+    container_name: pizza-database # 
     # build:
     #   context: ./database
     image: postgres:latest    # docker hub
     volumes:
       - ./database/pizza.sql:/docker-entrypoint-initdb.d/pizza.sql
       - ./database_data:/var/lib/postgresql/data
-    network_mode: host
+    #network_mode: host
     environment:
       POSTGRES_USER: kirsing
       POSTGRES_DB: postgres
       POSTGRES_PASSWORD: 219528k
 
 
-    command: -p 5999
+#    command: -p 1234
 
     restart: always
-   # ports:
-     # - 5999:5432
+    ports:
+      - 5999:5432
   client:
     container_name: pizza-client
     build:
       context: .
     restart: always
-    network_mode: host
+#    network_mode: host
     environment:
       SPRING_DATASOURCE_USERNAME: kirsing
-      SPRING_DATASOURCE_IP: localhost
+      SPRING_DATASOURCE_IP: database
       SPRING_DATASOURCE_PASSWORD: 219528k
       SPRING_DATASOURCE_PORT: 5999
-    #ports:
-     # - 8082:8082
+    ports:
+      - 8082:8082

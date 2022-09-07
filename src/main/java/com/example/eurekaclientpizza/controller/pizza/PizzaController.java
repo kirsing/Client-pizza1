@@ -1,12 +1,10 @@
-package com.example.eurekaclientpizza.controller;
+package com.example.eurekaclientpizza.controller.pizza;
 
-import com.example.eurekaclientpizza.model.Pizza;
-import com.example.eurekaclientpizza.repository.PizzaRepository;
+import com.example.eurekaclientpizza.model.pizza.Pizza;
+import com.example.eurekaclientpizza.repository.pizza.PizzaRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.*;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
